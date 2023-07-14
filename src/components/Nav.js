@@ -12,12 +12,6 @@ const Nav = ({ selectedUserDetails }) => {
         <li>
           <Link to="/task2">Task2</Link>
         </li>
-        <li>
-          <Link to="/task3">Task3</Link>
-            
-          
-            
-        </li>
         
       </ul>
     </nav>
