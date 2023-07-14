@@ -1,25 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Task1 from './components/Task1';
+import Task2 from './components/Task2';
+import Task3 from './components/Task3';
 
-function App() {
+import Nav from './components/Nav';
+import NotFound from './components/NotFound';
+
+const App = () => {
+  const [circleCount, setCircleCount] = useState(1);
+  const [selectedUserDetails, setSelectedUserDetails] = useState(null);
+
+  const handleCircleCountChange = (count) => {
+    setCircleCount(count);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <Nav />
+        <Routes>
+          <Route
+            path="/"
+            element={<Task1 onCircleCountChange={handleCircleCountChange} />}
+          />
+         <Route
+  path="/task2"
+  element={<Task2 circleCount={circleCount} setSelectedUserDetails={setSelectedUserDetails} />}
+/>
+
+          
+          <Route
+  path="/task3"
+  element={<Task3 userDetails={selectedUserDetails} setSelectedUserDetails={setSelectedUserDetails} />}
+/>
+
+         
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;

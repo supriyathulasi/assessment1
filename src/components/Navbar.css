@@ -1,0 +1,28 @@
+nav {
+  background-color: violet;
+  height: 60px; /* Adjust the height as needed */
+  display: flex;
+  justify-content:right;
+  align-items: center;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+nav ul li {
+  margin-right: 50px;
+}
+
+nav ul li:last-child {
+  margin-right: 0;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px; /* Adjust the font size as needed */
+}
